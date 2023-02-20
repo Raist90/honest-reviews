@@ -1,7 +1,7 @@
 import api from "./utils/api";
 
-export async function getPages() {
-  return await api.pages
+export async function getAllAuthors() {
+  return await api.authors
     .browse({
       limit: "all",
     })
@@ -10,10 +10,10 @@ export async function getPages() {
     });
 }
 
-export async function getSinglePage(pageSlug) {
-  return await api.pages
+export async function getAuthor(authorSlug) {
+  return await api.authors
     .read({
-      slug: pageSlug,
+      slug: authorSlug,
     })
     .catch((err) => {
       console.error(err);

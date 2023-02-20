@@ -9,6 +9,8 @@ const PostPage = (props) => {
       <h1>{post.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       <Link href="/">Back to home</Link>
+
+      <div>Author: <Link href={`/authors/${post.primary_author.slug}`}>{post.primary_author.name}</Link></div>
     </div>
   );
 };

@@ -1,9 +1,9 @@
-import api from "./utils/ghost-api";
+import api from "./utils/api";
 
 export async function getPosts() {
   return await api.posts
     .browse({
-      include: "tags, authors",
+      include: "authors,tags",
       limit: "all",
     })
     .catch((err) => {
@@ -15,6 +15,7 @@ export async function getSinglePost(postSlug) {
   return await api.posts
     .read({
       slug: postSlug,
+      include: "authors,tags",
     })
     .catch((err) => {
       console.error(err);
