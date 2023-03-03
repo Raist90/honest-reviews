@@ -50,7 +50,7 @@ const PostPage = (props) => {
             ))}
           </div>
           <hr />
-          <p className={styles.excerpt}>{post?.excerpt}</p>
+          <p className={`lead ${styles.excerpt}`}>{post?.excerpt}</p>
           <div className={styles.authorBox}>
             <div className="authorProfileImage">
               <Link

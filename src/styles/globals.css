@@ -18,6 +18,11 @@ p {
   line-height: 1.4;
 }
 
+p.lead {
+  font-size: 1.2rem;
+  font-style: italic;
+}
+
 hr {
   border: none;
   border-top: 2px dashed var(--secondary-color);
