@@ -55,3 +55,32 @@ h2.postTitle {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+@media screen and (min-width: 1280px) {
+  .biggerPost:first-child {
+    display: grid;
+    grid-template-columns: .66fr .34fr;
+    grid-column: span 3;
+  }
+
+  .biggerPost:first-child figure {
+    height: 600px;  
+  }
+
+  .biggerPost:first-child h2 {
+    font-size: 2rem;
+  }
+
+  .biggerPost:first-child p {
+    font-size: 1.2rem;
+  }
+
+  .biggerPost:first-child div.authorProfileImage {
+    width: 70px;
+    height: 70px;
+  }
+
+  .biggerPost:first-child small {
+    font-size: 1rem;
+  }
+}

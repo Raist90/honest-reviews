@@ -3,10 +3,12 @@ import Link from "next/link";
 import styles from "../styles/Index.module.css";
 import Head from "next/head";
 import { SITE_NAME } from "@/lib/utils/constants";
+import Router, { useRouter } from "next/router";
 
 const IndexPage = (props) => {
   const { posts } = props;
   const pageTitle = "Blog";
+  const {asPath} = useRouter()
 
   return (
     <>
@@ -17,7 +19,7 @@ const IndexPage = (props) => {
       </Head>
       <section className={styles.postsList}>
         {posts.map((post) => (
-          <article key={post?.id}>
+          <article className={asPath === "/" ? `${styles.biggerPost}` : ""} key={post?.id}>
             <Link href={`/posts/${post?.slug}`}>
               <figure className={styles.featureImageContainer}>
                 <img src={post?.feature_image} />
