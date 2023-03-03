@@ -1,13 +1,19 @@
-import { getAuthor, getAllAuthors } from "@/lib/authors";
+import {
+  getAuthor,
+  getAllAuthors,
+  getAllPostsByAuthorSlug,
+} from "@/lib/authors";
+import IndexPage from "..";
 
 const AuthorPage = (props) => {
-  const { author } = props;
+  const { author, posts } = props;
 
   return (
-    <div>
+    <>
       <h1>{author.name}</h1>
       <div dangerouslySetInnerHTML={{ __html: author.bio }} />
-    </div>
+      <IndexPage posts={posts} />
+    </>
   );
 };
 
@@ -28,6 +34,7 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   const author = await getAuthor(params.slug);
+  const posts = await getAllPostsByAuthorSlug(params.slug);
 
   if (!author) {
     return {
@@ -36,7 +43,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { author },
+    props: { author, posts },
   };
 }
 export default AuthorPage;

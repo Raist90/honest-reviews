@@ -1,8 +1,8 @@
 import GhostContentAPI from "@tryghost/content-api";
 
 const api = new GhostContentAPI({
-  url: "http://localhost:2368",
-  key: "3bc22483b46927279c9b136024",
+  url: "https://honest-reviews.digitalpress.blog",
+  key: "f46b70ab988727d44b8ec85d22",
   version: "v5.0",
 });
 

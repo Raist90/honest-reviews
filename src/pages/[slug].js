@@ -4,10 +4,10 @@ const Page = (props) => {
   const { page } = props;
 
   return (
-    <div>
+    <main>
       <h1>{page.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: page.html }} />
-    </div>
+    </main>
   );
 };
 

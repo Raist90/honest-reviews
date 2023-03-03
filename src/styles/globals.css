@@ -1,0 +1,160 @@
+:root {
+  --primary-color: rgb(82, 0, 255);
+  --secondary-color: rgb(60, 255, 208);
+  --body-color: #121212;
+  --body-bg: #f5f5f5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  margin: 1.2rem 0;
+  line-height: 1.4;
+}
+
+hr {
+  border: none;
+  border-top: 2px dashed var(--secondary-color);
+}
+
+figcaption {
+  font-family: "Space Grotesk", sans-serif;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.primaryTagName {
+  font-family: "Space Grotesk", sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1;
+  margin: 1.5rem 0;
+}
+
+h2 {
+  margin: 1.5rem 0;
+}
+
+small.primaryTagName {
+  display: inline-block;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  border: 1px solid;
+  padding: 5px;
+  color: var(--body-bg);
+}
+
+small.primaryTagName a {
+  text-decoration: none;
+}
+
+small.primaryTagName a:hover {
+  text-decoration: underline;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-direction: row;
+  color: var(--primary-color);
+}
+
+.tagsContainer small:not(.tagsContainer small:last-child) {
+  margin-right: 5px;
+}
+
+.tagsLink {
+  text-decoration: none;
+}
+
+.tagsLink:hover {
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  color: var(--body-color);
+  background: var(--body-bg);
+  font-family: "Arvo", serif;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+main {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+section {
+  padding: 20px;
+}
+
+figure {
+  margin: 36px 0;
+  position: relative;
+  height: auto;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+}
+
+.kg-embed-card {
+  aspect-ratio: 16/9;
+}
+
+figure iframe {
+  width: 100%;
+  height: 100%;
+}
+
+div.authorProfileImage {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+div.authorProfileImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-color);
+}
+
+footer {
+  font-family: "Space Grotesk", sans-serif;
+  text-align: center;
+  border-top: 1px solid var(--primary-color);
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media screen and (min-width: 900px) {
+  section {
+    padding: 20px 50px;
+  }
+}

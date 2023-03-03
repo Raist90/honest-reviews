@@ -1,7 +1,7 @@
 import api from "./utils/api";
 
-export async function getAllAuthors() {
-  return await api.authors
+export async function getAllTags() {
+  return await api.tags
     .browse({
       include: "count.posts",
       limit: "all",
@@ -11,10 +11,10 @@ export async function getAllAuthors() {
     });
 }
 
-export async function getAuthor(authorSlug) {
-  return await api.authors
+export async function getTag(tagSlug) {
+  return await api.tags
     .read({
-      slug: authorSlug,
+      slug: tagSlug,
       include: "count.posts",
     })
     .catch((err) => {
@@ -22,11 +22,11 @@ export async function getAuthor(authorSlug) {
     });
 }
 
-export async function getAllPostsByAuthorSlug(slug) {
+export async function getAllPostsByTagSlug(slug) {
   const posts = await api.posts.browse({
     limit: "all",
     include: "authors,tags",
-    filter: `author:${slug}`,
+    filter: `tag:${slug}`,
   });
   return posts;
 }
