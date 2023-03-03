@@ -5,8 +5,8 @@ const Page = (props) => {
 
   return (
     <main>
-      <h1>{page.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: page.html }} />
+      <h1>{page?.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: page?.html }} />
     </main>
   );
 };

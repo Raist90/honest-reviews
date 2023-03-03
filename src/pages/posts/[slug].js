@@ -22,59 +22,60 @@ const PostPage = (props) => {
         <title>
           {SITE_NAME} | {post.title}
         </title>
-        <meta title={post.meta_title} />
+        <meta title={post?.meta_title} />
         <meta name="description" content="{post.meta_description}" />
       </Head>
       <main className={styles.wrapper}>
         <article className={styles.postContainer}>
           <small
             style={
-              post.primary_tag.accent_color
-                ? { background: `${post.primary_tag?.accent_color}` }
+              post?.primary_tag?.accent_color
+                ? { background: `${post?.primary_tag?.accent_color}` }
                 : { background: "var(--primary-color)" }
             }
             className="primaryTagName"
           >
-            <Link href={`/tag/${post.primary_tag.slug}`}>
-              {post.primary_tag.name}
+            <Link href={`/tag/${post?.primary_tag?.slug}`}>
+              {post?.primary_tag?.name}
             </Link>
           </small>
-          <h1 className={styles.postTitle}>{post.title}</h1>
+          <h1 className={styles.postTitle}>{post?.title}</h1>
           <div className="tagsContainer">
-            {post.tags.slice(1).map((tag) => (
-              <small key={tag.id}>
-                <Link className="tagsLink" href={`/tag/${tag.name}`}>
-                  <em>#{tag.name}</em>
+            {post?.tags?.slice(1).map((tag) => (
+              <small key={tag?.id}>
+                <Link className="tagsLink" href={`/tag/${tag?.name}`}>
+                  <em>#{tag?.name}</em>
                 </Link>
               </small>
             ))}
           </div>
           <hr />
-          <p className={styles.excerpt}>{post.excerpt}</p>
+          <p className={styles.excerpt}>{post?.excerpt}</p>
           <div className={styles.authorBox}>
             <div className="authorProfileImage">
               <Link
                 href={
-                  post.primary_author && `/authors/${post.primary_author.slug}`
+                  post?.primary_author &&
+                  `/authors/${post?.primary_author?.slug}`
                 }
               >
-                <img src={post.primary_author.profile_image} />
+                <img src={post?.primary_author?.profile_image} />
               </Link>
             </div>
             <small>
               Da{" "}
-              <Link href={`/authors/${post.primary_author.slug}`}>
-                <strong>{post.primary_author.name}</strong>
+              <Link href={`/authors/${post?.primary_author?.slug}`}>
+                <strong>{post?.primary_author?.name}</strong>
               </Link>{" "}
               | {publishedDate}
             </small>
           </div>
           <figure className={styles.featureImageContainer}>
-            <img src={post.feature_image} />
+            <img src={post?.feature_image} />
           </figure>
           <div
             className={styles.postText}
-            dangerouslySetInnerHTML={{ __html: post.html }}
+            dangerouslySetInnerHTML={{ __html: post?.html }}
           />
         </article>
       </main>

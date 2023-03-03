@@ -7,7 +7,7 @@ const TagPage = (props) => {
 
   return (
     <>
-      <h1 className={styles.tagDataTitle}>{tagData.name}</h1>
+      <h1 className={styles.tagDataTitle}>{tagData?.name}</h1>
       <IndexPage posts={posts} />
     </>
   );

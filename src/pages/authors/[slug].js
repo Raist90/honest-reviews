@@ -10,8 +10,8 @@ const AuthorPage = (props) => {
 
   return (
     <>
-      <h1>{author.name}</h1>
-      <div dangerouslySetInnerHTML={{ __html: author.bio }} />
+      <h1>{author?.name}</h1>
+      <div dangerouslySetInnerHTML={{ __html: author?.bio }} />
       <IndexPage posts={posts} />
     </>
   );
