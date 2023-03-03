@@ -20,7 +20,6 @@ p {
 
 p.lead {
   font-size: 1.2rem;
-  font-style: italic;
 }
 
 hr {
@@ -94,6 +93,7 @@ small.primaryTagName a:hover {
 
 body {
   margin: 0;
+  border: 10px solid var(--body-color);
   color: var(--body-color);
   background: var(--body-bg);
   font-family: "Arvo", serif;
@@ -161,5 +161,9 @@ footer p {
 @media screen and (min-width: 900px) {
   section {
     padding: 20px 50px;
+  }
+
+  body {
+    border-width: 50px;
   }
 }
