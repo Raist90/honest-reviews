@@ -59,12 +59,14 @@ h2.postTitle {
 @media screen and (min-width: 1280px) {
   .biggerPost:first-child {
     display: grid;
-    grid-template-columns: .66fr .34fr;
+    grid-template-columns: 1fr 1fr;
     grid-column: span 3;
+    align-items: center;
+    gap: 20px;
   }
 
   .biggerPost:first-child figure {
-    height: 600px;  
+    height: 500px;
   }
 
   .biggerPost:first-child h2 {
@@ -75,6 +77,10 @@ h2.postTitle {
     font-size: 1.2rem;
   }
 
+  .biggerPost:first-child small {
+    font-size: 1rem;
+  }
+
   .biggerPost:first-child div.authorProfileImage {
     width: 70px;
     height: 70px;
@@ -82,5 +88,10 @@ h2.postTitle {
 
   .biggerPost:first-child small {
     font-size: 1rem;
+  }
+
+  .biggerPost:first-child div:nth-child(6) {
+    width: 70px;
+    height: 70px;
   }
 }

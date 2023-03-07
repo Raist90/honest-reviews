@@ -25,7 +25,7 @@
 }
 
 .navbarContainer li a {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: var(--primary-font);
   text-decoration: none;
   text-transform: lowercase;
   font-weight: 700;
