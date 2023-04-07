@@ -1,11 +1,13 @@
+import Head from "next/head";
+
 import {
   getAuthor,
   getAllAuthors,
   getAllPostsByAuthorSlug,
 } from "@/lib/authors";
-import Head from "next/head";
 import IndexPage from "..";
 import { SITE_NAME } from "@/lib/utils/constants";
+import dateFormatter from "@/utils/dateFormatter";
 
 const AuthorPage = (props) => {
   const { author, posts } = props;
@@ -43,15 +45,7 @@ export async function getStaticProps(context) {
   const posts = await getAllPostsByAuthorSlug(params.slug);
 
   posts.map((post) => {
-    const options = {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    };
-
-    post.dateFormatted = new Intl.DateTimeFormat("it-IT", options).format(
-      new Date(post.published_at)
-    );
+    post.dateFormatted = dateFormatter(post.published_at);
   });
 
   if (!author) {

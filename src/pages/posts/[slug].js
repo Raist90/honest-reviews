@@ -1,22 +1,17 @@
-import { getSinglePost, getPosts, getLatestPosts } from "@/lib/posts";
-import { SITE_NAME } from "@/lib/utils/constants";
 import Head from "next/head";
 import Link from "next/link";
+
+import { getSinglePost, getPosts, getLatestPosts } from "@/lib/posts";
+import { SITE_NAME } from "@/lib/utils/constants";
 import styles from "./Post.module.css";
 import IndexPage from "..";
 import DiscusComments from "@/components/DiscusComments";
+import dateFormatter from "@/utils/dateFormatter";
 
 const PostPage = (props) => {
   const { post, latestPosts } = props;
-  // todo: put this inside an utils
-  const publishedDate = new Date(post.published_at).toLocaleDateString(
-    "it-IT",
-    {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    }
-  );
+
+  const publishedDate = dateFormatter(post.published_at, "long");
 
   return (
     <>
@@ -58,7 +53,10 @@ const PostPage = (props) => {
                   `/authors/${post?.primary_author?.slug}`
                 }
               >
-                <img src={post?.primary_author?.profile_image} />
+                <img
+                  src={post?.primary_author?.profile_image}
+                  alt="immagine profilo dell'autore"
+                />
               </Link>
             </div>
             <small>
@@ -112,15 +110,7 @@ export async function getStaticProps(context) {
   const latestPosts = await getLatestPosts(params.slug);
 
   latestPosts.map((post) => {
-    const options = {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    };
-
-    post.dateFormatted = new Intl.DateTimeFormat("it-IT", options).format(
-      new Date(post.published_at)
-    );
+    post.dateFormatted = dateFormatter(post.published_at);
   });
 
   if (!post) {
