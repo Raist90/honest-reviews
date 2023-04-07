@@ -1,28 +1,24 @@
-import { getPosts } from "@/lib/posts";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
+import { getPosts } from "@/lib/posts";
 import styles from "../styles/Index.module.css";
-import Head from "next/head";
-import { SITE_NAME } from "@/lib/utils/constants";
-import Router, { useRouter } from "next/router";
 
 const IndexPage = (props) => {
   const { posts } = props;
-  const pageTitle = "Blog";
-  const {asPath} = useRouter()
+  const { asPath } = useRouter();
 
   return (
     <>
-      <Head>
-        <title>
-          {SITE_NAME} | {pageTitle}
-        </title>
-      </Head>
       <section className={styles.postsList}>
         {posts.map((post) => (
-          <article className={asPath === "/" ? `${styles.biggerPost}` : ""} key={post?.id}>
+          <article
+            className={asPath === "/" ? `${styles.biggerPost}` : ""}
+            key={post?.id}
+          >
             <Link href={`/posts/${post?.slug}`}>
               <figure className={styles.featureImageContainer}>
-                <img src={post?.feature_image} />
+                <img src={post?.feature_image} alt="immagine di copertina" />
               </figure>
             </Link>
             <div className={styles.postTextContainer}>
@@ -69,6 +65,7 @@ const IndexPage = (props) => {
               <small>
                 Da{" "}
                 <Link
+                  style={{ color: "var(--secondary-color)" }}
                   href={
                     post?.primary_author &&
                     `/authors/${post?.primary_author?.slug}`
@@ -96,7 +93,7 @@ export async function getStaticProps(context) {
       day: "numeric",
     };
 
-    post.dateFormatted = new Intl.DateTimeFormat("en-US", options).format(
+    post.dateFormatted = new Intl.DateTimeFormat("it-IT", options).format(
       new Date(post.published_at)
     );
   });

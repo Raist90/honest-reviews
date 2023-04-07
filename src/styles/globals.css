@@ -2,10 +2,15 @@
   --primary-color: rgb(82, 0, 255);
   --secondary-color: rgb(60, 255, 208);
   --accent-color: #f7e733;
-  --body-color: #121212;
-  --body-bg: #f5f5f5;
+  --body-bg: rgb(19, 19, 19);
+  --body-color: #f5f5f5;
+  --darker-body-bg: rgba(0, 0, 0, 0.2);
   --primary-font: "Space Grotesk", sans-serif;
-  --secondary-font: "Arvo", serif;
+  --secondary-font: "DM Sans", sans-serif;
+}
+
+html {
+  font-size: 18px;
 }
 
 * {
@@ -19,6 +24,7 @@ a {
 p {
   margin: 1.2rem 0;
   line-height: 1.4;
+  font-size: 1rem;
 }
 
 p.lead {
@@ -27,14 +33,14 @@ p.lead {
 
 hr {
   border: none;
-  border-top: 2px dashed var(--secondary-color);
+  border-top: 1px solid rgba(255, 255, 255, .2);
 }
 
 figcaption {
   font-family: var(--primary-font);
   margin-bottom: 1rem;
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.8);
+  font-size: .8rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 h1,
@@ -65,7 +71,6 @@ small.primaryTagName {
   font-weight: 700;
   border: 1px solid;
   padding: 5px;
-  color: var(--body-bg);
 }
 
 small.primaryTagName a {
@@ -79,7 +84,7 @@ small.primaryTagName a:hover {
 .tagsContainer {
   display: flex;
   flex-direction: row;
-  color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .tagsContainer small:not(.tagsContainer small:last-child) {
@@ -99,7 +104,6 @@ body {
   color: var(--body-color);
   background: var(--body-bg);
   font-family: var(--secondary-font);
-  font-size: 18px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -154,10 +158,18 @@ footer {
   border-top: 1px solid var(--primary-color);
   margin-top: 2rem;
   padding: 1rem 0;
+  background: var(--darker-body-bg);
 }
 
 footer p {
   margin: 0;
+}
+
+.latestArticlesContainer {
+  padding: 0;
+  background: var(--darker-body-bg);
+  border-top: 1px solid var(--accent-color);
+  margin-top: 50px;
 }
 
 @media screen and (min-width: 900px) {

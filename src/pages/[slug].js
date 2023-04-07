@@ -1,13 +1,21 @@
 import { getPages, getSinglePage } from "@/lib/pages";
+import Head from "next/head";
+import { SITE_NAME } from "@/lib/utils/constants";
 
 const Page = (props) => {
   const { page } = props;
 
   return (
-    <main>
-      <h1>{page?.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: page?.html }} />
-    </main>
+    <>
+      <Head>
+        <meta name="description" content={page?.meta_description} />
+        <title>{`${SITE_NAME} | ${page?.meta_title}`}</title>
+      </Head>
+      <main>
+        <h1>{page?.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: page?.html }} />
+      </main>
+    </>
   );
 };
 
