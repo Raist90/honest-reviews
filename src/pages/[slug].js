@@ -1,5 +1,6 @@
-import { getPages, getSinglePage } from "@/lib/pages";
 import Head from "next/head";
+
+import { getPages, getSinglePage } from "@/lib/pages";
 import { SITE_NAME } from "@/lib/utils/constants";
 
 const Page = (props) => {
