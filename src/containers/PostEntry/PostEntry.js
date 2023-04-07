@@ -6,7 +6,7 @@ import {
   FeaturedImage,
   PrimaryTag,
   TagsContainer,
-} from "./partials";
+} from "../partials";
 
 const PostEntry = (props) => {
   const { post } = props;
@@ -27,7 +27,9 @@ const PostEntry = (props) => {
 
         <p className={`lead ${styles.excerpt}`}>{post?.excerpt}</p>
 
-        <AuthorBox {...props} publishedDate={publishedDate} styles={styles} />
+        <div className={styles.authorBox}>
+          <AuthorBox {...props} publishedDate={publishedDate} />
+        </div>
 
         <FeaturedImage {...props} styles={styles} />
 

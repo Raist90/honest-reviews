@@ -1,10 +1,10 @@
 import Link from "next/link";
 
 const AuthorBox = (props) => {
-  const { post, styles, publishedDate } = props;
+  const { post, publishedDate } = props;
 
   return (
-    <div className={styles.authorBox}>
+    <>
       <div className="authorProfileImage">
         <Link
           href={
@@ -27,7 +27,7 @@ const AuthorBox = (props) => {
         </Link>{" "}
         | {publishedDate}
       </small>
-    </div>
+    </>
   );
 };
 
