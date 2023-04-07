@@ -16,6 +16,7 @@ const PostPage = (props) => {
         <meta name="description" content={post?.meta_description} />
         <title>{`${SITE_NAME} | ${post?.meta_title}`}</title>
       </Head>
+
       <PostEntry post={post} />
 
       <LatestPosts>
