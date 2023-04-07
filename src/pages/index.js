@@ -4,12 +4,14 @@ import { getPosts } from "@/lib/posts";
 import { PostList } from "@/containers/PostList";
 import dateFormatter from "@/utils/dateFormatter";
 
-const IndexPage = (posts) => {
+const IndexPage = (props) => {
+  const { posts } = props;
+
   const { asPath } = useRouter();
 
   return (
     <>
-      <PostList {...posts} asPath={asPath} />
+      <PostList posts={posts} asPath={asPath} />
     </>
   );
 };
