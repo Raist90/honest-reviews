@@ -11,7 +11,6 @@ import {
 const PostEntry = (props) => {
   const { post } = props;
 
-  // decide if keeping this here or put it in the partial
   const publishedDate = dateFormatter(post.published_at, "long");
 
   return (

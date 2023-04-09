@@ -1,4 +1,3 @@
-import { getSettings } from "@/lib/settings";
 import Link from "next/link";
 import styles from "./Navbar.module.css";
 
