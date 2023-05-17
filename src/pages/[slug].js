@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import { getPages, getSinglePage } from "@/lib/pages";
 import { SITE_NAME } from "@/lib/utils/constants";
+import { getSettings } from "@/lib/settings";
 
 const Page = (props) => {
   const { page } = props;
@@ -37,6 +38,7 @@ export async function getStaticProps(context) {
   const { params } = context;
 
   const page = await getSinglePage(params.slug);
+  const settings = await getSettings();
 
   if (!page) {
     return {
@@ -45,7 +47,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { page },
+    props: { page, settings },
   };
 }
 

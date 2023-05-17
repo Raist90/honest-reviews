@@ -1,4 +1,3 @@
-//todo: i will delete this because maybe i dont need dynamic menus
 import api from "./utils/api";
 
 export async function getSettings() {

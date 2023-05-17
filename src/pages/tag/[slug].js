@@ -4,6 +4,7 @@ import IndexPage from "..";
 import styles from "./Tag.module.css";
 import { SITE_NAME } from "@/lib/utils/constants";
 import dateFormatter from "@/utils/dateFormatter";
+import { getSettings } from "@/lib/settings";
 
 const TagPage = (props) => {
   const { tagData, posts } = props;
@@ -40,6 +41,7 @@ export async function getStaticProps(context) {
 
   const tagData = await getTag(params.slug);
   const posts = await getAllPostsByTagSlug(params.slug);
+  const settings = await getSettings();
 
   posts.map((post) => {
     post.dateFormatted = dateFormatter(post.published_at);
@@ -52,7 +54,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { tagData, posts },
+    props: { tagData, posts, settings },
   };
 }
 

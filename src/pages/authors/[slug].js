@@ -8,6 +8,7 @@ import {
 import IndexPage from "..";
 import { SITE_NAME } from "@/lib/utils/constants";
 import dateFormatter from "@/utils/dateFormatter";
+import { getSettings } from "@/lib/settings";
 
 const AuthorPage = (props) => {
   const { author, posts } = props;
@@ -43,6 +44,7 @@ export async function getStaticProps(context) {
 
   const author = await getAuthor(params.slug);
   const posts = await getAllPostsByAuthorSlug(params.slug);
+  const settings = await getSettings();
 
   posts.map((post) => {
     post.dateFormatted = dateFormatter(post.published_at);
@@ -55,7 +57,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { author, posts },
+    props: { author, posts, settings },
   };
 }
 export default AuthorPage;

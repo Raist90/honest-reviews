@@ -6,6 +6,7 @@ import IndexPage from "..";
 import { PostEntry } from "@/containers/PostEntry";
 import dateFormatter from "@/utils/dateFormatter";
 import { LatestPosts } from "@/containers/LatestPosts";
+import { getSettings } from "@/lib/settings";
 
 const PostPage = (props) => {
   const { post, latestPosts } = props;
@@ -17,7 +18,7 @@ const PostPage = (props) => {
         <title>{`${SITE_NAME} | ${post?.meta_title}`}</title>
       </Head>
 
-      <PostEntry post={post} />
+      <PostEntry {...{ post }} />
 
       <LatestPosts>
         <IndexPage posts={latestPosts} />
@@ -44,6 +45,7 @@ export async function getStaticProps(context) {
 
   const post = await getSinglePost(params.slug);
   const latestPosts = await getLatestPosts(params.slug);
+  const settings = await getSettings();
 
   latestPosts.map((post) => {
     post.dateFormatted = dateFormatter(post.published_at);
@@ -56,7 +58,7 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { post, latestPosts },
+    props: { post, latestPosts, settings },
   };
 }
 

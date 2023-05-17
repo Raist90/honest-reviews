@@ -3,11 +3,11 @@ import Navbar from "../Navbar";
 import styles from "./Layout.module.css";
 
 const Layout = (props) => {
-  const { children } = props;
+  const { children, settings } = props;
 
   return (
     <section className={styles.layoutWrapper}>
-      <Navbar />
+      <Navbar {...{ settings }} />
       {children}
       <Footer />
     </section>

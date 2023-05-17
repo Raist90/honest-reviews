@@ -1,4 +1,4 @@
-import { SITE_NAME } from "@/lib/utils/constants";
+// import { SITE_NAME } from "@/lib/utils/constants";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
