@@ -3,8 +3,8 @@ import styles from "./Navbar.module.css";
 
 // todo: be sure to also fetch nested navItems
 const Navbar = (props) => {
-  const { settings } = props
-  const navigation = settings ? settings.navigation : []
+  const { settings } = props;
+  const navigation = settings ? settings.navigation : [];
 
   return (
     <section className={styles.sticky}>

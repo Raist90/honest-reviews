@@ -13,7 +13,7 @@ import Button from "@/components/Button/Button";
 
 const PostList = (props) => {
   const { posts, asPath } = props;
-  const postsPerPage = 1;
+  const postsPerPage = 10;
 
   const [postNum, setPostNum] = useState(postsPerPage);
 

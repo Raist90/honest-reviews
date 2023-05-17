@@ -1,12 +1,12 @@
 import Button from "./Button";
 
-const meta = {
-  title: "Button",
+export default {
+  title: "Components/Button",
   component: Button,
 };
 
-export default meta;
-
-export const Primary = {
-  render: () => <Button label="Button">Vai al link</Button>,
+export const Default = {
+  args: {
+    children: "vai al link",
+  },
 };

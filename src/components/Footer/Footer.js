@@ -1,13 +1,9 @@
-import { SITE_NAME } from "@/lib/utils/constants";
+const Footer = (props) => {
+  const { children } = props;
 
-const currentYear = new Date().getFullYear();
-
-const Footer = () => {
   return (
     <footer>
-      <p>
-        © {currentYear} {SITE_NAME}. TUTTI I DIRITTI RISERVATI
-      </p>
+      <p>{children}</p>
     </footer>
   );
 };
