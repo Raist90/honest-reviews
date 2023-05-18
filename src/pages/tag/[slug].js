@@ -1,10 +1,10 @@
-import { getAllTags, getTag, getAllPostsByTagSlug } from "@/lib/tags";
+import { getAllTags, getTag, getAllPostsByTagSlug } from "../../lib/tags";
 import Head from "next/head";
 import IndexPage from "..";
 import styles from "./Tag.module.css";
-import { SITE_NAME } from "@/lib/utils/constants";
-import dateFormatter from "@/utils/dateFormatter";
-import { getSettings } from "@/lib/settings";
+import { SITE_NAME } from "../../lib/utils/constants";
+import dateFormatter from "../../utils/dateFormatter";
+import { getSettings } from "../../lib/settings";
 
 const TagPage = (props) => {
   const { tagData, posts } = props;

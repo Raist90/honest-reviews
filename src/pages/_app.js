@@ -1,7 +1,7 @@
-import "@/styles/globals.css";
-import Layout from "@/components/Layout";
+import "../styles/globals.css";
+import Layout from "../components/Layout/index";
 import Head from "next/head";
-import { SITE_NAME } from "@/lib/utils/constants";
+import { SITE_NAME } from "../lib/utils/constants";
 
 export default function App({ Component, pageProps }) {
   const { settings } = pageProps;

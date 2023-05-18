@@ -1,6 +1,6 @@
 import styles from "../../pages/posts/Post.module.css";
-import DiscusComments from "@/components/DiscusComments";
-import dateFormatter from "@/utils/dateFormatter";
+import DiscusComments from "../../components/DiscusComments";
+import dateFormatter from "../../utils/dateFormatter";
 import {
   AuthorBox,
   FeaturedImage,

@@ -1,9 +1,9 @@
 import { useRouter } from "next/router";
 
-import { getPosts } from "@/lib/posts";
-import { getSettings } from "@/lib/settings";
-import { PostList } from "@/containers/PostList";
-import dateFormatter from "@/utils/dateFormatter";
+import { getPosts } from "../lib/posts";
+import { getSettings } from "../lib/settings";
+import { PostList } from "../containers/PostList";
+import dateFormatter from "../utils/dateFormatter";
 
 const IndexPage = (props) => {
   const { posts, settings, meta } = props;

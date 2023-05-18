@@ -4,11 +4,11 @@ import {
   getAuthor,
   getAllAuthors,
   getAllPostsByAuthorSlug,
-} from "@/lib/authors";
+} from "../../lib/authors";
 import IndexPage from "..";
-import { SITE_NAME } from "@/lib/utils/constants";
-import dateFormatter from "@/utils/dateFormatter";
-import { getSettings } from "@/lib/settings";
+import { SITE_NAME } from "../../lib/utils/constants";
+import dateFormatter from "../../utils/dateFormatter";
+import { getSettings } from "../../lib/settings";
 
 const AuthorPage = (props) => {
   const { author, posts } = props;

@@ -1,12 +1,12 @@
 import Head from "next/head";
 
-import { getSinglePost, getPosts, getLatestPosts } from "@/lib/posts";
-import { SITE_NAME } from "@/lib/utils/constants";
+import { getSinglePost, getPosts, getLatestPosts } from "../../lib/posts";
+import { SITE_NAME } from "../../lib/utils/constants";
 import IndexPage from "..";
-import { PostEntry } from "@/containers/PostEntry";
-import dateFormatter from "@/utils/dateFormatter";
-import { LatestPosts } from "@/containers/LatestPosts";
-import { getSettings } from "@/lib/settings";
+import { PostEntry } from "../../containers/PostEntry";
+import dateFormatter from "../../utils/dateFormatter";
+import { LatestPosts } from "../../containers/LatestPosts";
+import { getSettings } from "../../lib/settings";
 
 const PostPage = (props) => {
   const { post, latestPosts } = props;

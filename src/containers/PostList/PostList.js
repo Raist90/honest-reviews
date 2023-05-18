@@ -9,7 +9,7 @@ import {
   PrimaryTag,
   TagsContainer,
 } from "../partials";
-import Button from "@/components/Button/Button";
+import Button from "../../components/Button/index";
 
 const PostList = (props) => {
   const { posts, asPath } = props;
