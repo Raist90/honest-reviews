@@ -55,11 +55,16 @@ const PostList = (props) => {
         ))}
       </section>
 
-      <section className={styles.loadMoreButtonContainer}>
-        <Button>
-          <a onClick={handleClick}>Carica più articoli</a>
-        </Button>
-      </section>
+      {(asPath === "/" ||
+        asPath.startsWith("/tag/") ||
+        asPath.startsWith("/authors/")) &&
+        postNum < posts?.length && (
+          <section className={styles.loadMoreButtonContainer}>
+            <Button>
+              <a onClick={handleClick}>Carica più articoli</a>
+            </Button>
+          </section>
+        )}
     </>
   );
 };

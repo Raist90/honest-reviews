@@ -10,7 +10,10 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>{SITE_NAME}</title>
-        <meta name="description" content="Honest Reviews, recensioni oneste di videogames" />
+        <meta
+          name="description"
+          content="Honest Reviews, recensioni oneste di videogames"
+        />
       </Head>
       <Layout {...{ settings }}>
         <Component {...pageProps} />

@@ -1,1 +1,2 @@
-export { default as postFormatter } from "./postFormatter";
+export { default as dateFormatter } from "./dateFormatter";
+export { default as postType } from "./postType";

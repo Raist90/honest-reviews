@@ -7,18 +7,9 @@ export default {
   args: {
     settings: {
       navigation: [
-        {
-          url: "#",
-          label: "Home",
-        },
-        {
-          url: "#",
-          label: "About",
-        },
-        {
-          url: "#",
-          label: "Post",
-        },
+        { url: "#", label: "Home" },
+        { url: "#", label: "About" },
+        { url: "#", label: "Post" },
       ],
     },
   },
