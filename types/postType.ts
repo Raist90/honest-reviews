@@ -22,5 +22,6 @@ export interface PostType {
   dateFormatted: string;
   primary_author: PrimaryAuthor;
   primary_tag: PrimaryTag;
+  published_at: string;
   tag: Tag[];
 }
