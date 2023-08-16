@@ -61,7 +61,7 @@ h2.postTitle {
 }
 
 @media screen and (min-width: 1280px) {
-  .biggerPost:first-child {
+  .heroPost:first-child {
     display: grid;
     grid-template-columns: 0.6fr 0.4fr;
     grid-column: span 3;
@@ -70,32 +70,32 @@ h2.postTitle {
     margin-bottom: 50px;
   }
 
-  .biggerPost:first-child figure {
+  .heroPost:first-child figure {
     height: 500px;
   }
 
-  .biggerPost:first-child h2 {
+  .heroPost:first-child h2 {
     font-size: 2rem;
   }
 
-  .biggerPost:first-child p {
+  .heroPost:first-child p {
     font-size: 1.2rem;
   }
 
-  .biggerPost:first-child small {
+  .heroPost:first-child small {
     font-size: 1rem;
   }
 
-  .biggerPost:first-child div.authorProfileImage {
+  .heroPost:first-child div.authorProfileImage {
     width: 70px;
     height: 70px;
   }
 
-  .biggerPost:first-child small {
+  .heroPost:first-child small {
     font-size: 1rem;
   }
 
-  .biggerPost:first-child div:nth-child(6) {
+  .heroPost:first-child div:nth-child(6) {
     width: 70px;
     height: 70px;
   }

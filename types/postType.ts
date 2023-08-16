@@ -1,13 +1,13 @@
 interface PrimaryAuthor {
-  slug: string;
-  profile_image: string;
   name: string;
+  profile_image: string;
+  slug: string;
 }
 
 interface PrimaryTag {
   accent_color: string;
-  slug: string;
   name: string;
+  slug: string;
 }
 
 interface Tag {
@@ -16,12 +16,14 @@ interface Tag {
 }
 
 export interface PostType {
-  feature_image: string;
-  slug: string;
-  title: string;
   dateFormatted: string;
+  feature_image: string;
+  meta_description: string;
+  meta_title: string;
   primary_author: PrimaryAuthor;
   primary_tag: PrimaryTag;
   published_at: string;
+  slug: string;
   tag: Tag[];
+  title: string;
 }

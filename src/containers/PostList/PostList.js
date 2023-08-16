@@ -26,7 +26,7 @@ const PostList = (props) => {
       <section className={styles.postsList}>
         {posts.slice(0, postNum).map((post) => (
           <article
-            className={asPath === "/" ? `${styles.biggerPost}` : ""}
+            className={asPath === "/" ? `${styles.heroPost}` : ""}
             key={post?.id}
           >
             <Link href={`/posts/${post?.slug}`}>

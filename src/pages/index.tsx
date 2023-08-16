@@ -47,9 +47,9 @@ export async function getStaticProps() {
 
 interface IndexPageProps {
   posts: PostType[];
-  settings: SettingsType;
-  meta: MetaType;
-  asPath: string;
+  settings?: SettingsType;
+  meta?: MetaType;
+  asPath?: string;
 }
 
 export default IndexPage;

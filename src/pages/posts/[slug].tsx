@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { GetStaticPropsContext, NextPage } from "next";
 
 import { getSinglePost, getPosts, getLatestPosts } from "../../lib/posts";
 import { SITE_NAME } from "../../lib/utils/constants";
@@ -7,8 +8,9 @@ import { PostEntry } from "../../containers/PostEntry";
 import dateFormatter from "../../utils/dateFormatter";
 import { LatestPosts } from "../../containers/LatestPosts";
 import { getSettings } from "../../lib/settings";
+import { PostType } from "../../../types/postType";
 
-const PostPage = (props) => {
+const PostPage: NextPage<PostPageProps> = (props) => {
   const { post, latestPosts } = props;
 
   return (
@@ -21,7 +23,7 @@ const PostPage = (props) => {
       <PostEntry {...{ post }} />
 
       <LatestPosts>
-        <IndexPage posts={latestPosts} />
+        <IndexPage {...{ posts: latestPosts }} />
       </LatestPosts>
     </>
   );
@@ -30,7 +32,7 @@ const PostPage = (props) => {
 export async function getStaticPaths() {
   const posts = await getPosts();
 
-  const paths = posts.map((post) => ({
+  const paths = posts.map((post: PostType) => ({
     params: { slug: post.slug },
   }));
 
@@ -40,14 +42,14 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: GetStaticPropsContext): Promise<any> {
   const { params } = context;
 
   const post = await getSinglePost(params.slug);
   const latestPosts = await getLatestPosts(params.slug);
   const settings = await getSettings();
 
-  latestPosts.map((post) => {
+  latestPosts.map((post: PostPageProps["post"]) => {
     post.dateFormatted = dateFormatter(post.published_at);
   });
 
@@ -60,6 +62,11 @@ export async function getStaticProps(context) {
   return {
     props: { post, latestPosts, settings },
   };
+}
+
+interface PostPageProps {
+  post: PostType;
+  latestPosts: PostType[];
 }
 
 export default PostPage;
