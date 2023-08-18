@@ -12,7 +12,7 @@ import {
 import Button from "../../components/Button/index";
 import { PostType } from "../../types";
 
-const PostList = (props: PostListProps) => {
+const PostList: React.FC<PostListProps> = (props) => {
   const { posts, asPath } = props;
   const POSTS_PER_PAGE = 10;
 

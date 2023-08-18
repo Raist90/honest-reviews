@@ -1,6 +1,8 @@
+import { ReactNode } from "react";
+
 import styles from "./LatestPosts.module.css";
 
-const LatestPosts = (props) => {
+const LatestPosts: React.FC<LatestPostsProps> = (props) => {
   const { children } = props;
 
   return (
@@ -9,6 +11,10 @@ const LatestPosts = (props) => {
       {children}
     </section>
   );
+};
+
+type LatestPostsProps = {
+  children: ReactNode;
 };
 
 export default LatestPosts;

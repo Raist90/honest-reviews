@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-const TagsContainer = (props) => {
+import { PostType } from "../../types";
+
+const TagsContainer: React.FC<TagsContainerProps> = (props) => {
   const { post } = props;
 
   return (
@@ -15,6 +17,10 @@ const TagsContainer = (props) => {
         ))}
     </div>
   );
+};
+
+type TagsContainerProps = {
+  post: PostType;
 };
 
 export default TagsContainer;

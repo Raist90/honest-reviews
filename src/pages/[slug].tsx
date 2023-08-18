@@ -1,10 +1,11 @@
+import { GetStaticPropsContext, NextPage } from "next";
 import Head from "next/head";
 
 import { getPages, getSinglePage } from "../lib/pages";
 import { SITE_NAME } from "../lib/utils/constants";
-import { getSettings } from "../lib/settings";
+import { PageType } from "../types";
 
-const Page = (props) => {
+const Page: NextPage<PageProps> = (props) => {
   const { page } = props;
 
   return (
@@ -22,7 +23,7 @@ const Page = (props) => {
 };
 
 export async function getStaticPaths() {
-  const pages = await getPages();
+  const pages: PageType[] = await getPages();
 
   const paths = pages.map((page) => ({
     params: { slug: page.slug },
@@ -34,11 +35,10 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: GetStaticPropsContext) {
   const { params } = context;
 
   const page = await getSinglePage(params.slug);
-  const settings = await getSettings();
 
   if (!page) {
     return {
@@ -47,8 +47,12 @@ export async function getStaticProps(context) {
   }
 
   return {
-    props: { page, settings },
+    props: { page },
   };
 }
+
+type PageProps = {
+  page: PageType;
+};
 
 export default Page;

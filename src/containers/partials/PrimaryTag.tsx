@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-const PrimaryTag = (props) => {
+import { PostType } from "../../types";
+
+const PrimaryTag: React.FC<PrimaryTagProps> = (props) => {
   const { post } = props;
 
   return (
@@ -17,6 +19,10 @@ const PrimaryTag = (props) => {
       </Link>
     </small>
   );
+};
+
+type PrimaryTagProps = {
+  post: PostType;
 };
 
 export default PrimaryTag;

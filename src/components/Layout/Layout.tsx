@@ -1,9 +1,11 @@
+import { ReactNode } from "react";
+
 import Footer from "../Footer";
 import Navbar from "../Navbar";
 import styles from "./Layout.module.css";
 import { SITE_NAME, CURRENT_YEAR } from "../../lib/utils/constants";
 
-const Layout = (props) => {
+const Layout: React.FC<LayoutProps> = (props) => {
   const { children } = props;
 
   return (
@@ -15,6 +17,10 @@ const Layout = (props) => {
       </Footer>
     </section>
   );
+};
+
+type LayoutProps = {
+  children: ReactNode;
 };
 
 export default Layout;

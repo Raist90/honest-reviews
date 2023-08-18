@@ -1,4 +1,6 @@
-const FeaturedImage = (props) => {
+import { PostType } from "../../types";
+
+const FeaturedImage: React.FC<FeaturedImageProps> = (props) => {
   const { post, styles } = props;
 
   return (
@@ -6,6 +8,11 @@ const FeaturedImage = (props) => {
       <img src={post?.feature_image} alt="immagine di copertina" />
     </figure>
   );
+};
+
+type FeaturedImageProps = {
+  post: PostType;
+  styles: any;
 };
 
 export default FeaturedImage;

@@ -66,9 +66,9 @@ export async function getStaticProps(
   };
 }
 
-interface PostPageProps {
+type PostPageProps = {
   post: PostType;
   latestPosts: PostType[];
-}
+};
 
 export default PostPage;

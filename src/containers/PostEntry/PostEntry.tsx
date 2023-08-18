@@ -7,8 +7,9 @@ import {
   PrimaryTag,
   TagsContainer,
 } from "../partials";
+import { PostType } from "../../types";
 
-const PostEntry = (props) => {
+const PostEntry: React.FC<PostEntryProps> = (props) => {
   const { post } = props;
 
   const publishedDate = dateFormatter(post.published_at, "long");
@@ -41,6 +42,10 @@ const PostEntry = (props) => {
       </article>
     </main>
   );
+};
+
+type PostEntryProps = {
+  post: PostType;
 };
 
 export default PostEntry;

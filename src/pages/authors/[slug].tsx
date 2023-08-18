@@ -1,3 +1,4 @@
+import { GetStaticPropsContext, NextPage } from "next";
 import Head from "next/head";
 
 import {
@@ -9,8 +10,9 @@ import IndexPage from "..";
 import { SITE_NAME } from "../../lib/utils/constants";
 import dateFormatter from "../../utils/dateFormatter";
 import { getSettings } from "../../lib/settings";
+import { AuthorType, PostType } from "../../types";
 
-const AuthorPage = (props) => {
+const AuthorPage: NextPage<AuthorPageProps> = (props) => {
   const { author, posts } = props;
 
   return (
@@ -27,7 +29,7 @@ const AuthorPage = (props) => {
 };
 
 export async function getStaticPaths() {
-  const authors = await getAllAuthors();
+  const authors: AuthorType[] = await getAllAuthors();
 
   const paths = authors.map((author) => ({
     params: { slug: author.slug },
@@ -39,11 +41,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: GetStaticPropsContext) {
   const { params } = context;
 
   const author = await getAuthor(params.slug);
-  const posts = await getAllPostsByAuthorSlug(params.slug);
+  const posts: PostType[] = await getAllPostsByAuthorSlug(params.slug);
   const settings = await getSettings();
 
   posts.map((post) => {
@@ -60,4 +62,10 @@ export async function getStaticProps(context) {
     props: { author, posts, settings },
   };
 }
+
+type AuthorPageProps = {
+  author: AuthorType;
+  posts: PostType[];
+};
+
 export default AuthorPage;

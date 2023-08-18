@@ -1,5 +1,5 @@
-import { useRouter } from "next/router";
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 
 import { PostType, SettingsType, MetaType } from "../types";
 import { getPosts } from "../lib/posts";
@@ -10,7 +10,7 @@ import { useSettings } from "../contexts/Settings";
 const IndexPage: NextPage<IndexPageProps> = (props) => {
   const { posts, meta } = props;
   const { asPath } = useRouter();
-  const settings = useSettings();
+  const settings: SettingsType = useSettings();
 
   const cmsData = {
     posts,
@@ -27,10 +27,10 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
 };
 
 export async function getStaticProps() {
-  const posts = await getPosts();
-  const { meta } = posts;
+  const posts: PostType[] = await getPosts();
+  const [meta] = posts;
 
-  posts.map((post: PostType) => {
+  posts.map((post) => {
     post.dateFormatted = dateFormatter(post.published_at);
   });
 

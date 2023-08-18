@@ -6,8 +6,6 @@ import Layout from "../components/Layout/index";
 import { SITE_NAME } from "../lib/utils/constants";
 
 export default function App({ Component, pageProps }) {
-  // const { settings } = pageProps;
-
   return (
     <>
       <Head>

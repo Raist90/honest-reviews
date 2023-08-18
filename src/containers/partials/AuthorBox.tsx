@@ -1,6 +1,8 @@
 import Link from "next/link";
 
-const AuthorBox = (props) => {
+import { PostType } from "../../types";
+
+const AuthorBox: React.FC<AuthorBoxProps> = (props) => {
   const { post, publishedDate } = props;
 
   return (
@@ -29,6 +31,11 @@ const AuthorBox = (props) => {
       </small>
     </>
   );
+};
+
+type AuthorBoxProps = {
+  post: PostType;
+  publishedDate: string;
 };
 
 export default AuthorBox;

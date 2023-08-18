@@ -1,3 +1,5 @@
+import MetaType from "./metaType";
+
 type PrimaryAuthor = {
   name: string;
   profile_image: string;
@@ -18,15 +20,17 @@ type Tag = {
 type PostType = {
   dateFormatted: string;
   excerpt: string;
-  id: string;
   feature_image: string;
+  html: string;
+  id: string;
+  meta: MetaType;
   meta_description: string;
   meta_title: string;
   primary_author: PrimaryAuthor;
   primary_tag: PrimaryTag;
   published_at: string;
   slug: string;
-  tag: Tag[];
+  tags: Tag[];
   title: string;
 };
 

@@ -1,12 +1,15 @@
-import { getAllTags, getTag, getAllPostsByTagSlug } from "../../lib/tags";
+import { GetStaticPropsContext, NextPage } from "next";
 import Head from "next/head";
+
+import { getAllTags, getTag, getAllPostsByTagSlug } from "../../lib/tags";
 import IndexPage from "..";
 import styles from "./Tag.module.css";
 import { SITE_NAME } from "../../lib/utils/constants";
 import dateFormatter from "../../utils/dateFormatter";
 import { getSettings } from "../../lib/settings";
+import { PostType, TagType } from "../../types";
 
-const TagPage = (props) => {
+const TagPage: NextPage<TagPageProps> = (props) => {
   const { tagData, posts } = props;
 
   return (
@@ -24,7 +27,7 @@ const TagPage = (props) => {
 };
 
 export async function getStaticPaths() {
-  const tags = await getAllTags();
+  const tags: TagType[] = await getAllTags();
 
   const paths = tags.map((tag) => ({
     params: { slug: tag.slug },
@@ -36,11 +39,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context: GetStaticPropsContext) {
   const { params } = context;
 
   const tagData = await getTag(params.slug);
-  const posts = await getAllPostsByTagSlug(params.slug);
+  const posts: PostType[] = await getAllPostsByTagSlug(params.slug);
   const settings = await getSettings();
 
   posts.map((post) => {
@@ -57,5 +60,10 @@ export async function getStaticProps(context) {
     props: { tagData, posts, settings },
   };
 }
+
+type TagPageProps = {
+  posts: PostType[];
+  tagData: TagType;
+};
 
 export default TagPage;
