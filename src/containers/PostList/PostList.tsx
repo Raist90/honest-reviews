@@ -10,15 +10,16 @@ import {
   TagsContainer,
 } from "../partials";
 import Button from "../../components/Button/index";
+import { PostType } from "../../types";
 
-const PostList = (props) => {
+const PostList = (props: PostListProps) => {
   const { posts, asPath } = props;
-  const postsPerPage = 10;
+  const POSTS_PER_PAGE = 10;
 
-  const [postNum, setPostNum] = useState(postsPerPage);
+  const [postNum, setPostNum] = useState(POSTS_PER_PAGE);
 
   function handleClick() {
-    setPostNum((prevPost) => prevPost + postsPerPage);
+    setPostNum((prevPost) => prevPost + POSTS_PER_PAGE);
   }
 
   return (
@@ -67,6 +68,11 @@ const PostList = (props) => {
         )}
     </>
   );
+};
+
+type PostListProps = {
+  posts: PostType[];
+  asPath: string;
 };
 
 export default PostList;

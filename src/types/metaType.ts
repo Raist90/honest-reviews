@@ -1,11 +1,13 @@
-interface Pagination {
+type Pagination = {
   page: number;
   limit: number;
   pages: number;
   next: number | null;
   prev: number | null;
-}
+};
 
-export interface MetaType {
+type MetaType = {
   pagination: Pagination;
-}
+};
+
+export default MetaType;

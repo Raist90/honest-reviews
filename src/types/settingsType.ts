@@ -1,9 +1,9 @@
-interface Navigation {
+type Navigation = {
   label: string;
   url: string;
-}
+};
 
-export interface SettingsType {
+type SettingsType = {
   title: string;
   description: string;
   logo: string;
@@ -16,8 +16,8 @@ export interface SettingsType {
   timezone: string;
   codeinjection_head: string | null;
   codeinjection_foot: string | null;
-  navigation: Navigation;
-  secondary_navigation: Navigation | [];
+  navigation: Navigation[];
+  secondary_navigation: Navigation[] | [];
   meta_title: string;
   meta_description: string;
   og_image: string | null;
@@ -28,4 +28,6 @@ export interface SettingsType {
   twitter_description: string | null;
   members_support_address: string;
   url: string;
-}
+};
+
+export default SettingsType;

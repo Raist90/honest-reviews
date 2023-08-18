@@ -8,7 +8,7 @@ import { PostEntry } from "../../containers/PostEntry";
 import dateFormatter from "../../utils/dateFormatter";
 import { LatestPosts } from "../../containers/LatestPosts";
 import { getSettings } from "../../lib/settings";
-import { PostType } from "../../../types/postType";
+import { PostType } from "../../types";
 
 const PostPage: NextPage<PostPageProps> = (props) => {
   const { post, latestPosts } = props;
@@ -42,7 +42,9 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: GetStaticPropsContext): Promise<any> {
+export async function getStaticProps(
+  context: GetStaticPropsContext
+): Promise<any> {
   const { params } = context;
 
   const post = await getSinglePost(params.slug);

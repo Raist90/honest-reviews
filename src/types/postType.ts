@@ -1,22 +1,24 @@
-interface PrimaryAuthor {
+type PrimaryAuthor = {
   name: string;
   profile_image: string;
   slug: string;
-}
+};
 
-interface PrimaryTag {
+type PrimaryTag = {
   accent_color: string;
   name: string;
   slug: string;
-}
+};
 
-interface Tag {
+type Tag = {
   name: string;
   id: string;
-}
+};
 
-export interface PostType {
+type PostType = {
   dateFormatted: string;
+  excerpt: string;
+  id: string;
   feature_image: string;
   meta_description: string;
   meta_title: string;
@@ -26,4 +28,6 @@ export interface PostType {
   slug: string;
   tag: Tag[];
   title: string;
-}
+};
+
+export default PostType;
