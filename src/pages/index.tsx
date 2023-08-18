@@ -1,20 +1,17 @@
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 
-import { PostType, SettingsType, MetaType } from "../types";
+import { PostType, MetaType } from "../types";
 import { getPosts } from "../lib/posts";
 import { PostList } from "../containers/PostList";
 import dateFormatter from "../utils/dateFormatter";
-import { useSettings } from "../contexts/Settings";
 
 const IndexPage: NextPage<IndexPageProps> = (props) => {
   const { posts, meta } = props;
   const { asPath } = useRouter();
-  const settings: SettingsType = useSettings();
 
   const cmsData = {
     posts,
-    settings,
     asPath,
     meta,
   };
@@ -47,7 +44,6 @@ export async function getStaticProps() {
 
 type IndexPageProps = {
   posts: PostType[];
-  settings?: SettingsType;
   meta?: MetaType;
   asPath?: string;
 };
