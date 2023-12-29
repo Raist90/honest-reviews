@@ -1,18 +1,18 @@
 import Link from "next/link";
 import styles from "./Navbar.module.css";
-import { useSettings } from "../../contexts/Settings";
-import { SettingsType } from "../../types";
+import { getGhostData } from "../../api";
 
-// TODO: be sure to also fetch nested navItems
-const Navbar = () => {
-  const settings: SettingsType = useSettings() ?? {};
+/** @todo Be sure to also fetch nested navItems */
+const Navbar = async () => {
+  /** @todo Maybe it's best to fetch this data from `Layout` and then pass it as porps to `Navbar` */
+  const settings = await getGhostData("settings");
   const { navigation } = settings;
 
   return (
     <section className={styles.sticky}>
       <nav className={styles.wrapper}>
         <ul className={styles.navbarContainer}>
-          {navigation &&
+          {Array.isArray(navigation) &&
             navigation.map((item, idx) => (
               <li key={idx}>
                 <Link href={item.url}>{item.label}</Link>

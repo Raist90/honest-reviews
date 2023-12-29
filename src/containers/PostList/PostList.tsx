@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -9,11 +10,14 @@ import {
   PrimaryTag,
   TagsContainer,
 } from "../partials";
-import Button from "../../components/Button/index";
+import Button from "../../components/Button";
 import { PostType } from "../../types";
+import { usePathname } from "next/navigation";
+import dateFormatter from "../../utils/dateFormatter";
 
-const PostList: React.FC<PostListProps> = (props) => {
-  const { posts, asPath } = props;
+const PostList: React.FC<PostListProps> = ({ posts }) => {
+  /** @todo Make sure to remove the type cast and handle null values */
+  const currentPath = usePathname() as string;
   const POSTS_PER_PAGE = 10;
 
   const [postNum, setPostNum] = useState(POSTS_PER_PAGE);
@@ -27,10 +31,10 @@ const PostList: React.FC<PostListProps> = (props) => {
       <section className={styles.postsList}>
         {posts.slice(0, postNum).map((post) => (
           <article
-            className={asPath === "/" ? `${styles.heroPost}` : ""}
+            className={currentPath === "/" ? `${styles.heroPost}` : ""}
             key={post?.id}
           >
-            <Link href={`/posts/${post?.slug}`}>
+            <Link href={`/posts/${post?.slug}` || ""}>
               <FeaturedImage post={post} styles={styles} />
             </Link>
 
@@ -39,7 +43,7 @@ const PostList: React.FC<PostListProps> = (props) => {
 
               <Link
                 className={styles.postTitleLink}
-                href={`/posts/${post?.slug}`}
+                href={`/posts/${post?.slug}` || ""}
               >
                 <h2 className={styles.postTitle}>{post?.title}</h2>
               </Link>
@@ -50,15 +54,18 @@ const PostList: React.FC<PostListProps> = (props) => {
 
               <p>{post?.excerpt}</p>
 
-              <AuthorBox post={post} publishedDate={post?.dateFormatted} />
+              <AuthorBox
+                post={post}
+                publishedDate={dateFormatter(post.published_at)}
+              />
             </PostText>
           </article>
         ))}
       </section>
 
-      {(asPath === "/" ||
-        asPath.startsWith("/tag/") ||
-        asPath.startsWith("/authors/")) &&
+      {(currentPath === "/" ||
+        currentPath.startsWith("/tag/") ||
+        currentPath.startsWith("/authors/")) &&
         postNum < posts?.length && (
           <section className={styles.loadMoreButtonContainer}>
             <Button>

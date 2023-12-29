@@ -3,7 +3,7 @@ import { GetStaticPropsContext, NextPage } from "next";
 
 import { getSinglePost, getPosts, getLatestPosts } from "../../lib/posts";
 import { SITE_NAME } from "../../lib/utils/constants";
-import IndexPage from "..";
+// import IndexPage from "..";
 import { PostEntry } from "../../containers/PostEntry";
 import dateFormatter from "../../utils/dateFormatter";
 import { LatestPosts } from "../../containers/LatestPosts";
@@ -22,9 +22,9 @@ const PostPage: NextPage<PostPageProps> = (props) => {
 
       <PostEntry {...{ post }} />
 
-      <LatestPosts>
-        <IndexPage {...{ posts: latestPosts }} />
-      </LatestPosts>
+      {/* <LatestPosts> */}
+      {/*   <IndexPage {...{ posts: latestPosts }} /> */}
+      {/* </LatestPosts> */}
     </>
   );
 };
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(
-  context: GetStaticPropsContext
+  context: GetStaticPropsContext,
 ): Promise<any> {
   const { params } = context;
 

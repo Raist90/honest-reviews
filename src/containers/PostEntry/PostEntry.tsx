@@ -1,4 +1,4 @@
-import styles from "../../pages/posts/Post.module.css";
+import styles from "./Post.module.css";
 import DiscusComments from "../../components/DiscusComments";
 import dateFormatter from "../../utils/dateFormatter";
 import {

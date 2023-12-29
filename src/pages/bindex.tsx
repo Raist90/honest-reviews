@@ -1,5 +1,7 @@
+"use client";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 import { PostType, MetaType } from "../types";
 import { getPosts } from "../lib/posts";
@@ -8,7 +10,7 @@ import dateFormatter from "../utils/dateFormatter";
 
 const IndexPage: NextPage<IndexPageProps> = (props) => {
   const { posts, meta } = props;
-  const { asPath } = useRouter();
+  const asPath = usePathname();
 
   const cmsData = {
     posts,
