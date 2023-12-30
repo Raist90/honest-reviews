@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar/Navbar";
 import SettingsProvider from "../contexts/Settings";
 import { CURRENT_YEAR, SITE_NAME } from "../lib/utils/constants";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
+import classNames from "classnames";
 
 const DM_SANS = DM_Sans({
   display: "swap",
@@ -16,16 +17,17 @@ const SPACE_GROTESK = Space_Grotesk({
   subsets: ["latin"],
 });
 
+const fontStyles = classNames(
+  `${DM_SANS.className}, ${SPACE_GROTESK.className}`,
+);
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="it"
-      className={`${DM_SANS.className} ${SPACE_GROTESK.className}`}
-    >
+    <html lang="it" className={fontStyles}>
       <body>
         <SettingsProvider>
           <section className={styles.layoutWrapper}>
