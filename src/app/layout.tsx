@@ -1,6 +1,5 @@
 import Footer from "../components/Footer";
 import "../styles/globals.css";
-import styles from "../components/Layout/Layout.module.css";
 import Navbar from "../components/Navbar/Navbar";
 import SettingsProvider from "../contexts/Settings";
 import { CURRENT_YEAR, SITE_NAME } from "../lib/utils/constants";
@@ -30,7 +29,7 @@ export default function RootLayout({
     <html lang="it" className={fontStyles}>
       <body>
         <SettingsProvider>
-          <section className={styles.layoutWrapper}>
+          <section className="w-full h-full">
             <Navbar />
             {children}
             <Footer>
