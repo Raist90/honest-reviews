@@ -4,20 +4,17 @@ import { PostType } from "../../types";
 
 const PrimaryTag: React.FC<PrimaryTagProps> = (props) => {
   const { post } = props;
+  const primaryTagColor =
+    post?.primary_tag?.accent_color || "var(--primary-color)";
 
   return (
-    <small
-      style={
-        post?.primary_tag?.accent_color
-          ? { background: `${post?.primary_tag?.accent_color}` }
-          : { background: "var(--primary-color)" }
-      }
-      className="primaryTagName"
+    <Link
+      style={{ background: `${primaryTagColor}` }}
+      className="w-fit p-2 inline-block text-white uppercase text-xs mb-2"
+      href={`/tag/${post?.primary_tag?.slug}`}
     >
-      <Link href={`/tag/${post?.primary_tag?.slug}`}>
-        {post?.primary_tag?.name}
-      </Link>
-    </small>
+      {post?.primary_tag?.name}
+    </Link>
   );
 };
 

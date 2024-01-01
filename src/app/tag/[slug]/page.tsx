@@ -1,6 +1,5 @@
 import { getGhostData } from "../../../api";
 import HomePage from "../../page";
-import styles from "./Tag.module.css";
 
 const TagPage = async ({ params }) => {
   const { slug } = params;
@@ -14,7 +13,7 @@ const TagPage = async ({ params }) => {
       {/*   <title>{`${SITE_NAME} | ${tagData?.name}`}</title> */}
       {/* </Head> */}
 
-      <h1 className={styles.tagDataTitle}>{tagData?.name}</h1>
+      <h1>{tagData?.name}</h1>
 
       <HomePage posts={posts} />
     </>

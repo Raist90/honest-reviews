@@ -1,4 +1,3 @@
-import styles from "./Post.module.css";
 import DiscusComments from "../../components/DiscusComments";
 import dateFormatter from "../../utils/dateFormatter";
 import {
@@ -15,28 +14,25 @@ const PostEntry: React.FC<PostEntryProps> = (props) => {
   const publishedDate = dateFormatter(post.published_at, "long");
 
   return (
-    <main className={styles.wrapper}>
-      <article className={styles.postContainer}>
+    <main>
+      <article>
         <PrimaryTag {...props} />
 
-        <h1 className={styles.postTitle}>{post?.title}</h1>
+        <h1>{post?.title}</h1>
 
         <TagsContainer {...props} />
 
         <hr />
 
-        <p className={`lead ${styles.excerpt}`}>{post?.excerpt}</p>
+        <p>{post?.excerpt}</p>
 
-        <div className={styles.authorBox}>
+        <div>
           <AuthorBox {...props} publishedDate={publishedDate} />
         </div>
 
-        <FeaturedImage {...props} styles={styles} />
+        <FeaturedImage {...props} />
 
-        <div
-          className={styles.postText}
-          dangerouslySetInnerHTML={{ __html: post?.html }}
-        />
+        <div dangerouslySetInnerHTML={{ __html: post?.html }} />
 
         <DiscusComments post={post} />
       </article>

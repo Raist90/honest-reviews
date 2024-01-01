@@ -10,7 +10,7 @@ const TagsContainer: React.FC<TagsContainerProps> = (props) => {
       {post.tags &&
         post?.tags?.slice(1).map((tag) => (
           <small key={tag?.id}>
-            <Link className="tagsLink" href={`/tag/${tag?.name}`}>
+            <Link href={`/tag/${tag?.name}`}>
               <em>#{tag?.name}</em>
             </Link>
           </small>

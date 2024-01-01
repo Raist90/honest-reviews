@@ -7,16 +7,19 @@ const AuthorBox: React.FC<AuthorBoxProps> = (props) => {
 
   return (
     <>
-      <div className="authorProfileImage">
+      <div>
         <Link
           href={
             post?.primary_author && `/authors/${post?.primary_author?.slug}`
           }
         >
-          <img
-            src={post?.primary_author?.profile_image}
-            alt="immagine profilo dell'autore"
-          />
+          <div className="h-[70px] w-[70px]">
+            <img
+              className="w-full h-full object-cover rounded-full"
+              src={post?.primary_author?.profile_image}
+              alt="immagine profilo dell'autore"
+            />
+          </div>
         </Link>
       </div>
       <small>

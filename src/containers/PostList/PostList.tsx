@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import styles from "../../styles/Index.module.css";
 import {
   AuthorBox,
   FeaturedImage,
@@ -28,24 +27,18 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
 
   return (
     <>
-      <section className={styles.postsList}>
+      <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-10 items-start">
         {posts.slice(0, postNum).map((post) => (
-          <article
-            className={currentPath === "/" ? `${styles.heroPost}` : ""}
-            key={post?.id}
-          >
+          <article className="grid gap-5" key={post?.id}>
             <Link href={`/posts/${post?.slug}` || ""}>
-              <FeaturedImage post={post} styles={styles} />
+              <FeaturedImage post={post} />
             </Link>
 
-            <PostText styles={styles}>
+            <div className="grid">
               <PrimaryTag post={post} />
 
-              <Link
-                className={styles.postTitleLink}
-                href={`/posts/${post?.slug}` || ""}
-              >
-                <h2 className={styles.postTitle}>{post?.title}</h2>
+              <Link href={`/posts/${post?.slug}`}>
+                <h2 className="text-2xl font-bold">{post?.title}</h2>
               </Link>
 
               <TagsContainer post={post} />
@@ -58,21 +51,21 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
                 post={post}
                 publishedDate={dateFormatter(post.published_at)}
               />
-            </PostText>
+            </div>
           </article>
         ))}
       </section>
 
-      {(currentPath === "/" ||
-        currentPath.startsWith("/tag/") ||
-        currentPath.startsWith("/authors/")) &&
-        postNum < posts?.length && (
-          <section className={styles.loadMoreButtonContainer}>
-            <Button>
-              <a onClick={handleClick}>Carica più articoli</a>
-            </Button>
-          </section>
-        )}
+      {/* {(currentPath === "/" || */}
+      {/*   currentPath.startsWith("/tag/") || */}
+      {/*   currentPath.startsWith("/authors/")) && */}
+      {/*   postNum < posts?.length && ( */}
+      {/*     <section className={styles.loadMoreButtonContainer}> */}
+      {/*       <Button> */}
+      {/*         <a onClick={handleClick}>Carica più articoli</a> */}
+      {/*       </Button> */}
+      {/*     </section> */}
+      {/*   )} */}
     </>
   );
 };

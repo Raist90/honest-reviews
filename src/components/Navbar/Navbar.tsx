@@ -1,5 +1,4 @@
 import Link from "next/link";
-import styles from "./Navbar.module.css";
 import { getGhostData } from "../../api";
 
 /** @todo Be sure to also fetch nested navItems */
@@ -9,9 +8,9 @@ const Navbar = async () => {
   const { navigation } = settings;
 
   return (
-    <section className={styles.sticky}>
-      <nav className={styles.wrapper}>
-        <ul className={styles.navbarContainer}>
+    <section>
+      <nav>
+        <ul>
           {Array.isArray(navigation) &&
             navigation.map((item, idx) => (
               <li key={idx}>

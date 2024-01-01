@@ -1,14 +1,13 @@
 import { ReactNode } from "react";
 
 const PostText: React.FC<PostTextProps> = (props) => {
-  const { styles, children } = props;
+  const { children } = props;
 
-  return <div className={styles.postTextContainer}>{children}</div>;
+  return <div>{children}</div>;
 };
 
 type PostTextProps = {
   children: ReactNode;
-  styles: any;
 };
 
 export default PostText;
