@@ -8,29 +8,25 @@ import {
 } from "../partials";
 import { PostType } from "../../types";
 
-const PostEntry: React.FC<PostEntryProps> = (props) => {
-  const { post } = props;
-
+const PostEntry: React.FC<PostEntryProps> = ({ post }) => {
   const publishedDate = dateFormatter(post.published_at, "long");
 
   return (
     <main>
       <article>
-        <PrimaryTag {...props} />
+        <PrimaryTag post={post} />
 
         <h1>{post?.title}</h1>
 
-        <TagsContainer {...props} />
-
-        <hr />
+        <TagsContainer post={post} />
 
         <p>{post?.excerpt}</p>
 
         <div>
-          <AuthorBox {...props} publishedDate={publishedDate} />
+          <AuthorBox post={post} publishedDate={publishedDate} />
         </div>
 
-        <FeaturedImage {...props} />
+        <FeaturedImage post={post} />
 
         <div dangerouslySetInnerHTML={{ __html: post?.html }} />
 

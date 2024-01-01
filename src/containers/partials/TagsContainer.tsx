@@ -6,7 +6,7 @@ const TagsContainer: React.FC<TagsContainerProps> = (props) => {
   const { post } = props;
 
   return (
-    <div className="tagsContainer">
+    <div className="inline-flex gap-2">
       {post.tags &&
         post?.tags?.slice(1).map((tag) => (
           <small key={tag?.id}>
