@@ -8,9 +8,9 @@ const Navbar = async () => {
   const { navigation } = settings;
 
   return (
-    <section>
-      <nav>
-        <ul>
+    <section className="w-1/4 mx-auto my-8">
+      <nav className="text-center">
+        <ul className="inline-flex gap-3">
           {Array.isArray(navigation) &&
             navigation.map((item, idx) => (
               <li key={idx}>

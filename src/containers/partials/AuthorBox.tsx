@@ -21,7 +21,8 @@ const AuthorBox: React.FC<AuthorBoxProps> = (props) => {
       <div className="mb-2 text-sm">
         Da{" "}
         <Link
-          style={{ color: "var(--secondary-color)" }}
+          // style={{ color: "var(--secondary-color)" }}
+          className="font-bold"
           href={`/authors/${post?.primary_author?.slug}`}
         >
           <strong>{post?.primary_author?.name}</strong>

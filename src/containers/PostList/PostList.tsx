@@ -43,7 +43,7 @@ const PostList: React.FC<PostListProps> = ({ posts }) => {
 
               <TagsContainer post={post} />
 
-              <p className="my-2">{post?.excerpt}</p>
+              <p className="my-4">{post?.excerpt}</p>
 
               <AuthorBox
                 post={post}
