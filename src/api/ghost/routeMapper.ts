@@ -1,6 +1,6 @@
 export const routeMapper = (input: string, slug: string) => {
   const routeList = {
-    author: {
+    authors: {
       route: "authors",
       options: "&include=count.posts&limit=all",
       data: "authors",
@@ -32,10 +32,10 @@ export const routeMapper = (input: string, slug: string) => {
     },
     settings: {
       route: "settings",
-      options: "",
+      options: "&limit=all",
       data: "settings",
     },
-    page: {
+    pages: {
       route: "pages",
       options: `&limit=all`,
       data: "pages",

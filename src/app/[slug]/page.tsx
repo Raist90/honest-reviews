@@ -1,9 +1,16 @@
-import { getGhostData } from "../../api";
+import { getAllPages, getSinglePage } from "@/api/ghost/utils";
+
+export const generateStaticParams = async () => {
+  const pages = await getAllPages()
+  return pages.map((page) => ({
+    slug: page.slug
+  }))
+}
 
 const Page = async ({ params }) => {
   const { slug } = params;
-  const data = await getGhostData("singlePage", slug);
-  const page = data[0];
+
+  const page = await getSinglePage(slug)
   /** @todo Add SEO component */
   return (
     <>

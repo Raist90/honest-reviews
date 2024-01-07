@@ -1,4 +1,4 @@
-import MetaType from "./metaType";
+import { MetaType } from "./metaType";
 
 type PrimaryAuthor = {
   name: string;
@@ -17,7 +17,7 @@ type Tag = {
   id: string;
 };
 
-type PostType = {
+export type PostType = {
   dateFormatted: string;
   excerpt: string;
   feature_image: string;
@@ -33,5 +33,3 @@ type PostType = {
   tags: Tag[];
   title: string;
 };
-
-export default PostType;

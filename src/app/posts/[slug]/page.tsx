@@ -1,24 +1,23 @@
-import { getGhostData } from "../../../api";
-import { LatestPosts } from "../../../containers/LatestPosts";
-import { PostEntry } from "../../../containers/PostEntry";
-import HomePage from "../../page";
+import { getAllPosts, getLatestPosts, getSinglePost } from "@/api/ghost/utils";
+import { LatestPosts, PostEntry } from "@/blocks";
+
+export const generateStaticParams = async () => {
+  const posts = await getAllPosts()
+
+  return posts.map((post) => ({
+    slug: post.slug
+  }))
+}
 
 const PostPage = async ({ params }) => {
   const { slug } = params;
-  const data = await getGhostData("singlePost", slug);
-  const post = data[0];
 
-  const latestPostsData = await getGhostData("latestPosts", slug);
-  /** @todo Move this logic into a helper or formatter */
-  const latestPosts = latestPostsData
-    .filter((post) => post.slug !== slug)
-    .slice(0, 3);
+  const post = await getSinglePost(slug)
+  const latestPosts = await getLatestPosts(slug)
   return (
     <>
       <PostEntry post={post} />
-      <LatestPosts>
-        <HomePage posts={latestPosts} />
-      </LatestPosts>
+      <LatestPosts latestPosts={latestPosts} />
     </>
   );
 };

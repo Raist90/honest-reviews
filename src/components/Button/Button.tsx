@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = (props) => {
   const { children } = props;
 
   return <button>{children}</button>;
@@ -9,5 +9,3 @@ const Button: React.FC<ButtonProps> = (props) => {
 type ButtonProps = {
   children: ReactNode;
 };
-
-export default Button;

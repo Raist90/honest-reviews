@@ -1,9 +1,9 @@
-import { getGhostData } from "../api/ghost";
-import { PostList } from "../containers/PostList";
+import { PostList } from "@/blocks/PostList";
+import { getAllPosts } from "@/api/ghost/utils";
 
-const HomePage = async ({ posts }) => {
-  const postsData = posts ? posts : await getGhostData("posts");
-  return <PostList posts={postsData} />;
+const HomePage = async () => {
+  const posts = await getAllPosts()
+  return <PostList posts={posts} />;
 };
 
 export default HomePage;

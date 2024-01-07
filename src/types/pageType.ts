@@ -1,4 +1,4 @@
-type PageType = {
+export type PageType = {
   html: string;
   meta_description: string;
   meta_title: string;
@@ -6,4 +6,3 @@ type PageType = {
   title: string;
 };
 
-export default PageType;

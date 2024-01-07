@@ -3,7 +3,7 @@ type Navigation = {
   url: string;
 };
 
-type SettingsType = {
+export type SettingsType = {
   title: string;
   description: string;
   logo: string;
@@ -30,4 +30,3 @@ type SettingsType = {
   url: string;
 };
 
-export default SettingsType;

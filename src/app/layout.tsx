@@ -1,8 +1,6 @@
-import Footer from "../components/Footer";
 import "../styles/globals.css";
-import Navbar from "../components/Navbar/Navbar";
-import SettingsProvider from "../contexts/Settings";
-import { CURRENT_YEAR, SITE_NAME } from "../lib/utils/constants";
+import { Footer, Navbar } from "../components";
+import { CURRENT_YEAR, SITE_NAME } from "@/constants";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import classNames from "classnames";
 
@@ -28,15 +26,13 @@ export default function RootLayout({
   return (
     <html lang="it" className={fontStyles}>
       <body>
-        <SettingsProvider>
-          <section className="w-full h-full">
-            <Navbar />
-            {children}
-            <Footer>
-              © {CURRENT_YEAR} {SITE_NAME}. TUTTI I DIRITTI RISERVATI
-            </Footer>
-          </section>
-        </SettingsProvider>
+        <section className="w-full h-full">
+          <Navbar />
+          {children}
+          <Footer>
+            © {CURRENT_YEAR} {SITE_NAME}. TUTTI I DIRITTI RISERVATI
+          </Footer>
+        </section>
       </body>
     </html>
   );

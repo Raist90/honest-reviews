@@ -2,7 +2,7 @@ import { routeMapper } from "./routeMapper";
 
 /** @todo Use a discriminated union to make slug required when input is singlePost */
 export const getGhostData = async (input: string, slug?: string) => {
-  const getRoute = routeMapper(input, slug);
+  const getRoute = routeMapper(input, slug as string);
   const endpoint = getRoute.route;
   const options = getRoute.options;
 

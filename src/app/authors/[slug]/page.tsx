@@ -1,11 +1,18 @@
-import { getGhostData } from "../../../api";
-import HomePage from "../../page";
+import { PostList } from "@/blocks";
+import { getAllAuthors, getAllPostsByAuthor, getSingleAuthor } from "@/api/ghost/utils";
+
+export const generateStaticParams = async () => {
+  const authors = await getAllAuthors()
+  return authors.map((author) => ({
+    slug: author.slug
+  }))
+}
 
 const AuthorPage = async ({ params }) => {
   const { slug } = params;
-  const authorData = await getGhostData("singleAuthor", slug);
-  const author = authorData[0];
-  const posts = await getGhostData("allPostsByAuthor", slug);
+
+  const author = await getSingleAuthor(slug)
+  const posts = await getAllPostsByAuthor(slug)
   return (
     <>
       {/* <Head> */}
@@ -14,7 +21,7 @@ const AuthorPage = async ({ params }) => {
       {/* </Head> */}
       <h1>{author?.name}</h1>
       {/* <div dangerouslySetInnerHTML={{ __html: author?.bio }} /> */}
-      <HomePage posts={posts} />
+      <PostList posts={posts} />
     </>
   );
 };

@@ -6,8 +6,7 @@ type Pagination = {
   prev: number | null;
 };
 
-type MetaType = {
+export type MetaType = {
   pagination: Pagination;
 };
 
-export default MetaType;

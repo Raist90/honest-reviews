@@ -1,11 +1,19 @@
-import { getGhostData } from "../../../api";
-import HomePage from "../../page";
+import { PostList } from "@/blocks";
+import { getAllPostsByTag, getAllTags, getSingleTag } from "@/api/ghost/utils";
+
+export const generateStaticParams = async () => {
+  const tags = await getAllTags()
+
+  return tags.map((tag) => ({
+    slug: tag.slug
+  }))
+}
 
 const TagPage = async ({ params }) => {
   const { slug } = params;
-  const rawTagData = await getGhostData("singleTag", slug);
-  const tagData = rawTagData[0];
-  const posts = await getGhostData("allPostsByTag", slug);
+
+  const tagData = await getSingleTag(slug)
+  const posts = await getAllPostsByTag(slug)
   return (
     <>
       {/* <Head> */}
@@ -15,7 +23,7 @@ const TagPage = async ({ params }) => {
 
       <h1>{tagData?.name}</h1>
 
-      <HomePage posts={posts} />
+      <PostList posts={posts} />
     </>
   );
 };

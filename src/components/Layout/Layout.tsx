@@ -1,10 +1,10 @@
 import { ReactNode } from "react";
 
-import Footer from "../Footer";
-import Navbar from "../Navbar";
-import { SITE_NAME, CURRENT_YEAR } from "../../lib/utils/constants";
+import { Footer } from "../Footer";
+import { Navbar } from "../Navbar";
+import { SITE_NAME, CURRENT_YEAR } from '@/constants';
 
-const Layout: React.FC<LayoutProps> = (props) => {
+export const Layout: React.FC<LayoutProps> = (props) => {
   const { children } = props;
 
   return (
@@ -22,4 +22,3 @@ type LayoutProps = {
   children: ReactNode;
 };
 
-export default Layout;
