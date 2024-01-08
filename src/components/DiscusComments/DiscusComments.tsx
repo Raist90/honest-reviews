@@ -4,9 +4,10 @@ import { DiscussionEmbed } from "disqus-react";
 
 type DisqusCommentsProps = {
   post: PostType
+  className?: string
 }
 
-export const DisqusComments: React.FC<DisqusCommentsProps> = ({ post }) => {
+export const DisqusComments: React.FC<DisqusCommentsProps> = ({ post, ...rest }) => {
   const disqusShortname = "raist";
   const disqusConfig = {
     url: process.env.APP_URL,
@@ -14,7 +15,7 @@ export const DisqusComments: React.FC<DisqusCommentsProps> = ({ post }) => {
     title: post.title, // Single post title
   };
   return (
-    <div>
+    <div {...rest}>
       <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
     </div>
   );

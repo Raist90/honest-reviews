@@ -30,11 +30,11 @@ export const PostList: React.FC<PostListProps> = ({ posts }) => {
 
   return (
     <>
-      <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 p-10 items-start">
+      <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:px-10 px-5 items-start">
         {posts.slice(0, postNum).map((post) => (
           <article className="grid gap-5" key={post?.id}>
             <Link href={`/posts/${post?.slug}` || ""}>
-              <FeaturedImage post={post} />
+              <FeaturedImage className="aspect-[4/3]" post={post} />
             </Link>
 
             <div className="grid">

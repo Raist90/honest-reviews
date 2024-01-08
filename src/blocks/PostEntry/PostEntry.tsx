@@ -7,30 +7,32 @@ import {
   TagsContainer,
 } from "../partials";
 import type { PostType } from "@/types";
+import styles from './PostEntry.module.css'
 
 export const PostEntry: React.FC<PostEntryProps> = ({ post }) => {
   const publishedDate = dateFormatter(post.published_at, "long");
 
   return (
     <main>
-      <article>
-        <PrimaryTag post={post} />
+      <article className="lg:px-10 px-5">
 
-        <h1>{post?.title}</h1>
+        <div className="lg:w-1/2 lg:mx-auto my-10">
+          <PrimaryTag post={post} />
 
-        <TagsContainer post={post} />
+          <h2 className="text-3xl font-bold">{post?.title}</h2>
 
-        <p>{post?.excerpt}</p>
+          <TagsContainer post={post} />
 
-        <div>
+          <p className="my-4">{post?.excerpt}</p>
+
           <AuthorBox post={post} publishedDate={publishedDate} />
         </div>
 
-        <FeaturedImage post={post} />
+        <FeaturedImage className="lg:w-3/4 lg:mx-auto lg:aspect-[16/9] aspect-[4/3] my-10" post={post} />
 
-        <div dangerouslySetInnerHTML={{ __html: post?.html }} />
+        <div className={`lg:w-1/2 lg:mx-auto ${styles.textContainer}`} dangerouslySetInnerHTML={{ __html: post?.html }} />
 
-        <DisqusComments post={post} />
+        <DisqusComments className="lg:w-1/2 lg:mx-auto" post={post} />
       </article>
     </main>
   );

@@ -1,10 +1,10 @@
 import { PostType } from "../../types";
 
-export const FeaturedImage: React.FC<FeaturedImageProps> = (props) => {
-  const { post } = props;
+export const FeaturedImage: React.FC<FeaturedImageProps> = ({ post, ...rest }) => {
 
+  /** @todo Use `next/image` to optimize the image */
   return (
-    <figure className="aspect-[4/3]">
+    <figure {...rest}>
       <img
         className="w-full h-full object-cover rounded-md"
         src={post?.feature_image}
@@ -16,4 +16,5 @@ export const FeaturedImage: React.FC<FeaturedImageProps> = (props) => {
 
 type FeaturedImageProps = {
   post: PostType;
+  className?: string;
 };
