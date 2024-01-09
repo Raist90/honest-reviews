@@ -2,21 +2,20 @@ import "../styles/globals.css";
 import { Footer, Navbar } from "../components";
 import { CURRENT_YEAR, SITE_NAME } from "@/constants";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
-import classNames from "classnames";
+import { ProgressBar } from "@/components/ProgressBar";
 
-const DM_SANS = DM_Sans({
-  display: "swap",
-  subsets: ["latin"],
-});
+/** @todo Fin a way to make this work in combination with the other font */
+// const DM_SANS = DM_Sans({
+//   display: "swap",
+//   subsets: ["latin"],
+//   variable: '--secondary-font',
+// });
 
 const SPACE_GROTESK = Space_Grotesk({
   display: "swap",
   subsets: ["latin"],
 });
 
-const fontStyles = classNames(
-  `${DM_SANS.className}, ${SPACE_GROTESK.className}`,
-);
 
 export default function RootLayout({
   children,
@@ -24,9 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="it" className={fontStyles}>
+    <html lang="it" className={SPACE_GROTESK.className}>
       <body>
         <section className="w-full h-full">
+          <ProgressBar />
           <Navbar />
           {children}
           <Footer>

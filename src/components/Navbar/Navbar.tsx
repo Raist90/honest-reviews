@@ -8,8 +8,8 @@ export const Navbar = async () => {
   const { navigation } = settings;
 
   return (
-    <section className="w-1/4 mx-auto my-8">
-      <nav className="text-center">
+    <section className="w-1/4 mx-auto">
+      <nav className="text-center py-8">
         <ul className="inline-flex gap-3">
           {Array.isArray(navigation) &&
             navigation.map((item, idx) => (
