@@ -5,6 +5,7 @@ export * from './getAllPostsByAuthor'
 export * from './getAllPostsByTag'
 export * from './getAllTags'
 export * from './getLatestPosts';
+export * from './getSettings'
 export * from './getSingleAuthor'
 export * from './getSinglePage'
 export * from './getSinglePost'

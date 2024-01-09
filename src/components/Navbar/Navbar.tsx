@@ -1,10 +1,9 @@
 import Link from "next/link";
-import { getGhostData } from "../../api";
+import { getSettings } from "@/api/ghost/utils";
 
 /** @todo Be sure to also fetch nested navItems */
 export const Navbar = async () => {
-  /** @todo Maybe it's best to fetch this data from `Layout` and then pass it as porps to `Navbar` */
-  const settings = await getGhostData("settings");
+  const settings = await getSettings()
   const { navigation } = settings;
 
   return (
