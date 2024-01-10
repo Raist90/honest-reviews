@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="it" className={SPACE_GROTESK.className}>
-      <body>
+      <body className="dark:bg-neutral-800 dark:text-white">
         <section className="w-full h-full">
           <ProgressBar />
           <Navbar />
