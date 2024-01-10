@@ -1,7 +1,10 @@
 import { routeMapper } from "./routeMapper";
+import * as allGetters from '@/api/ghost/utils'
 
-/** @todo Use a discriminated union to make slug required when input is singlePost */
-export const getGhostData = async (input: string, slug?: string) => {
+type GetterReturnList = ReturnType<typeof allGetters[keyof typeof allGetters]>
+
+/** todo Complete this, something is not right, we should only return `data` */
+export const getGhostData = async (input: Parameters<typeof routeMapper>[0], slug?: string) => {
   const getRoute = routeMapper(input, slug as string);
   const endpoint = getRoute.route;
   const options = getRoute.options;
@@ -10,7 +13,7 @@ export const getGhostData = async (input: string, slug?: string) => {
 
   const response = await fetch(url);
 
-  const data = await response.json();
+  const data: GetterReturnList = await response.json();
 
   return data[getRoute.data];
 };

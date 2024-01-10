@@ -1,4 +1,4 @@
-export const routeMapper = (input: string, slug: string) => {
+export const routeMapper = (input: keyof typeof routeList, slug: string) => {
   const routeList = {
     authors: {
       route: "authors",
@@ -60,7 +60,8 @@ export const routeMapper = (input: string, slug: string) => {
       options: `&include=authors,tags&limit=all&filter=tag:${slug}`,
       data: "posts",
     },
-  };
+  } as const
 
   return routeList[input];
 };
+
