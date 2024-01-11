@@ -1,5 +1,24 @@
 import { PostList } from "@/blocks";
 import { getAllAuthors, getAllPostsByAuthor, getSingleAuthor } from "@/api/ghost/utils";
+import { SITE_NAME } from "@/constants";
+import { capitalize } from "@/utils";
+import type { Metadata } from "next";
+
+type Params = {
+  params: {
+    slug: string
+  }
+}
+
+export const generateMetadata = async ({ params }: Params): Promise<Metadata> => {
+  const { slug } = params
+  const author = await getSingleAuthor(slug)
+  return {
+    title: `${capitalize(author.name)} | ${SITE_NAME}`,
+    description: author.bio,
+    applicationName: SITE_NAME
+  }
+}
 
 export const generateStaticParams = async () => {
   const authors = await getAllAuthors()
@@ -15,10 +34,6 @@ const AuthorPage = async ({ params }) => {
   const posts = await getAllPostsByAuthor(slug)
   return (
     <>
-      {/* <Head> */}
-      {/*   <meta name="description" content={author.bio} /> */}
-      {/*   <title>{`${SITE_NAME} | ${author.name}`}</title> */}
-      {/* </Head> */}
       <h1>{author?.name}</h1>
       {/* <div dangerouslySetInnerHTML={{ __html: author?.bio }} /> */}
       <PostList posts={posts} />
