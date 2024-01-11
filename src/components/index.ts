@@ -1,5 +1,5 @@
 export * from './Button'
-export * from './DiscusComments'
+export * from './DisqusComments'
 export * from './Footer'
 export * from './Navbar'
 export * from './ThemeSwitcher'

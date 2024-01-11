@@ -1,4 +1,4 @@
-import { DisqusComments } from "@/components/DiscusComments";
+import { DisqusComments } from "@/components/DisqusComments";
 import { dateFormatter } from "@/utils";
 import {
   AuthorBox,
