@@ -3,62 +3,62 @@ export const routeMapper = (input: keyof typeof routeList, slug: string) => {
     authors: {
       route: "authors",
       options: "&include=count.posts&limit=all",
-      data: "authors",
+      prefix: "authors",
     },
     singleAuthor: {
       route: `authors/slug/${slug}`,
       options: "&include=count.posts",
-      data: "authors",
+      prefix: "authors",
     },
     allPostsByAuthor: {
       route: "posts",
       options: `&include=authors,tags&limit=all&filter=author:${slug}`,
-      data: "posts",
+      prefix: "posts",
     },
     posts: {
       route: "posts",
       options: "&include=tags,authors",
-      data: "posts",
+      prefix: "posts",
     },
     singlePost: {
       route: `posts/slug/${slug}`,
       options: `&include=tags,authors`,
-      data: "posts",
+      prefix: "posts",
     },
     latestPosts: {
       route: "posts",
       options: `&include=tags,authors&limit=4`,
-      data: "posts",
+      prefix: "posts",
     },
     settings: {
       route: "settings",
       options: "&limit=all",
-      data: "settings",
+      prefix: "settings",
     },
     pages: {
       route: "pages",
       options: `&limit=all`,
-      data: "pages",
+      prefix: "pages",
     },
     singlePage: {
       route: `pages/slug/${slug}`,
       options: `&slug=${slug}`,
-      data: "pages",
+      prefix: "pages",
     },
     tags: {
       route: "tags",
       options: "&include=count.posts&limit=all",
-      data: "tags",
+      prefix: "tags",
     },
     singleTag: {
       route: `tags/slug/${slug}`,
       options: `&include=authors,tags&filter=tag:${slug}`,
-      data: "tags",
+      prefix: "tags",
     },
     allPostsByTag: {
       route: "posts",
       options: `&include=authors,tags&limit=all&filter=tag:${slug}`,
-      data: "posts",
+      prefix: "posts",
     },
   } as const
 

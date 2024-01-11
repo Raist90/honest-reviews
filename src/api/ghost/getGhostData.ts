@@ -1,9 +1,5 @@
 import { routeMapper } from "./routeMapper";
-import * as allGetters from '@/api/ghost/utils'
 
-type GetterReturnList = ReturnType<typeof allGetters[keyof typeof allGetters]>
-
-/** todo Complete this, something is not right, we should only return `data` */
 export const getGhostData = async (input: Parameters<typeof routeMapper>[0], slug?: string) => {
   const getRoute = routeMapper(input, slug as string);
   const endpoint = getRoute.route;
@@ -13,7 +9,7 @@ export const getGhostData = async (input: Parameters<typeof routeMapper>[0], slu
 
   const response = await fetch(url);
 
-  const data: GetterReturnList = await response.json();
+  const data = await response.json();
 
-  return data[getRoute.data];
+  return data[getRoute.prefix]
 };
